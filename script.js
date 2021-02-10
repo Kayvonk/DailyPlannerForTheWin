@@ -22,6 +22,15 @@ function addTimeBlock(hour) {
     var textArea = document.createElement("textarea");
     textArea.className = "description";
     textArea.textContent = localStorage.getItem(hour);
+    if (hour < now.hour()) {
+        textCol.classList.add("past")
+    }
+    else if (hour > now.hour()) {
+        textCol.classList.add("future")
+    }
+    else {
+        textCol.classList.add("present")
+    }
     textCol.append(textArea);
 
     var saveCol = document.createElement("div");
